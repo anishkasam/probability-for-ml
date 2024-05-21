@@ -3,9 +3,10 @@
 </script>
 
 <main>
-  <h1>Svelte template</h1>
+  <h1>Probability for Machine Learning</h1>
 
-  <p>Write your HTML here</p>
+  <p>Designed to be an interactive review of important probability and statistics
+  concepts that are highly relevant to machine learning</p>
 </main>
 
 <style>
