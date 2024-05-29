@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+.section {
+  margin-top: 4vh;
+}
+
+.subsection {
+  margin-top: 2.5vh;
+}
+
+.section-header {
+  margin-bottom: -1vh;
+}
+
+.subsection-header {
+  margin-bottom: 1.5vh;
+  margin-top: 4vh;
+}
+
+.header {
+  margin-bottom: 2.5vh;
+}
+
+b {
+  font-weight: 600;
+}
+
+a {
+  color: #1289A7;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #1289A7;
+}
