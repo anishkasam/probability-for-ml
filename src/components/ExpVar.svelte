@@ -17,18 +17,18 @@
       <p>Suppose {@html katexify("X", false)} is a discrete random variable with pmf 
       {@html katexify("p_x", false)}. Its expectation (also known as mean/average) is given by:</p>
 
-      {@html katexify("\\mathbb{E}\\text{[X]}=\\sum_{a\\in\\R}a\\cdot p_x(a)=\\sum_{a\\in\\R}a\\cdot \\mathbb{P}(X=a)", true)}
+      {@html katexify("\\mathbb{E}\\text{[X]}=\\sum_{a\\in\\R}a\\cdot \\mathbb{P}(X=a)", true)}
     
-      <p>Suppose {@html katexify("W\\sim \\text{Ber}(p)", false)}. Then, 
+      <p>If {@html katexify("W\\sim \\text{Ber}(p)", false)}. Then, 
       {@html katexify("\\mathbb{E}\\text{[W]}=p", false)}.</p>
 
-      <p>Suppose {@html katexify("X\\sim \\text{Bin}(n,p)", false)}. Then, 
+      <p>If {@html katexify("X\\sim \\text{Bin}(n,p)", false)}. Then, 
       {@html katexify("\\mathbb{E}\\text{[X]}=np", false)}.</p>
 
-      <p>Suppose {@html katexify("Y\\sim \\text{Geom}(p)", false)}. Then, 
+      <p>If {@html katexify("Y\\sim \\text{Geom}(p)", false)}. Then, 
       {@html katexify("\\mathbb{E}\\text{[Y]}=\\frac{1}{p}", false)}.</p>
 
-      <p>Suppose {@html katexify("Z\\sim \\text{Poisson}(\\lambda)", false)}. Then, 
+      <p>If {@html katexify("Z\\sim \\text{Poisson}(\\lambda)", false)}. Then, 
       {@html katexify("\\mathbb{E}\\text{[Z]}=\\lambda", false)}.</p>
 
       <p><b>Theorem:</b> expecation is linear; if {@html katexify("X", false)} and 
@@ -50,10 +50,10 @@
 
       {@html katexify("\\mathbb{E}\\text{[X]}=\\int^{\\infty}_{-\\infty}t\\cdot f_x(t)dt", true)}
     
-      <p>Suppose {@html katexify("U\\sim \\text{Unif}[a,b]", false)}. Then, 
+      <p>If {@html katexify("U\\sim \\text{Unif}[a,b]", false)}. Then, 
       {@html katexify("\\mathbb{E}\\text{[U]}=\\frac{a+b}{2}", false)}.</p>
 
-      <p>Suppose {@html katexify("X\\sim \\mathcal{N}(\\mu,\\sigma)", false)}. Then, 
+      <p>If {@html katexify("X\\sim \\mathcal{N}(\\mu,\\sigma)", false)}. Then, 
       {@html katexify("\\mathbb{E}\\text{[X]}=\\mu", false)}.</p>
 
       <p><b>Theorem:</b> if {@html katexify("X", false)} is a continuous random variable and
@@ -66,9 +66,13 @@
 
       <p>Let {@html katexify("X", false)} be a random variable. The variance of {@html katexify("X", false)} is:</p>
 
-      {@html katexify("\\text{Var}\\text{(X)}=\\mathbb{E}[(X-\\mathbb{E}\\text{[X]})^2]=\\mathbb{E}[X^2]-(\\mathbb{E}\\text{[X]})^2", true)}
+      {@html katexify("\\text{Var}\\text{(X)}=\\mathbb{E}[(X-\\mathbb{E}\\text{[X]})^2]", true)}
+
+      <p>Another formula for variance that is often easier to calculate is:</p>
+
+      {@html katexify("\\text{Var}\\text{(X)}=\\mathbb{E}[X^2]-(\\mathbb{E}\\text{[X]})^2", true)}
     
-      <p>The standard deviation of {@html katexify("X", false)} is: {@html katexify("\\sqrt{\\text{Var}(X)}", false)}.</p>
+      <p><b>Note:</b> the standard deviation of {@html katexify("X", false)} is: {@html katexify("\\sqrt{\\text{Var}(X)}", false)}.</p>
     </div>
   </div>
 </main>

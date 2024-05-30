@@ -32,9 +32,10 @@
       {@html katexify("p", false)}.</p>
 
       <p>Let {@html katexify("X", false)} be a Binomial random variable. Then, we write 
-      {@html katexify("X\\sim \\text{Bin}(n,p)", false)}. Its pmf is given by:</p>
+      {@html katexify("X\\sim \\text{Bin}(n,p)", false)}. Its pmf for 
+      {@html katexify("0 \\leq k \\leq n", false)} is given by:</p>
 
-      {@html katexify("\\mathbb{P}(X=k)={n\\choose k}p^k(1-p)^{n-k},\\ 0 \\leq k \\leq n", true)}
+      {@html katexify("\\mathbb{P}(X=k)={n\\choose k}p^k(1-p)^{n-k}", true)}
     </div>
 
     <div class="subsection">
@@ -44,9 +45,10 @@
       trials (with success probabiliy {@html katexify("p", false)}) needed to get the first success.</p>
 
       <p>Let {@html katexify("X", false)} be a Geometric random variable. Then, we write 
-      {@html katexify("X\\sim \\text{Geom}(p)", false)}. Its pmf is given by:</p>
+      {@html katexify("X\\sim \\text{Geom}(p)", false)}. Its pmf 
+      for {@html katexify("1 \\leq k", false)} is given by:</p>
 
-      {@html katexify("\\mathbb{P}(X=k)=p(1-p)^{k-1},\\ 1 \\leq k", true)}
+      {@html katexify("\\mathbb{P}(X=k)=p(1-p)^{k-1}", true)}
     </div>
 
     <div class="subsection">
@@ -57,9 +59,10 @@
       {@html katexify("\\lambda", false)}.</p>
 
       <p>Let {@html katexify("X", false)} be a Poisson random variable. Then, we write 
-      {@html katexify("X\\sim \\text{Poisson}(\\lambda)", false)}. Its pmf is given by:</p>
+      {@html katexify("X\\sim \\text{Poisson}(\\lambda)", false)}. Its pmf 
+      for {@html katexify("0 \\leq k", false)} is given by:</p>
 
-      {@html katexify("\\mathbb{P}(X=k)=e^{-\\lambda}\\frac{\\lambda^k}{k!},\\ 0 \\leq k", true)}
+      {@html katexify("\\mathbb{P}(X=k)=e^{-\\lambda}\\frac{\\lambda^k}{k!}", true)}
     </div>
   </div>
 </main>

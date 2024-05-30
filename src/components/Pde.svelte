@@ -61,30 +61,28 @@
       <h4 class="subsection-header">Maximum Likelihood Estimation (MLE)</h4>
       <svg height="400" >
         <!-- X Axis -->
-        <line x1="0" y1="350" x2="{windowWidth}" y2="350" stroke="#000000" stroke-opacity="1" />
+        <line x1="0" y1="350" x2="{windowWidth}" y2="350" stroke="#000000" stroke-opacity="1" stroke-width="2"/>
 
         {#each data as point}
-          <circle cx="{50 + (point + 3) * 100}" cy="350" r="5" fill="white" stroke="black" />
-          <line x1="{50 + (point + 3) * 100}" y1="350" x2="{50 + (point + 3) * 100}" y2="{350 - gaussian(point, mu, sigma) * 400}" stroke="green" stroke-dasharray="4" stroke-width="2" />
+          <circle cx="{(point + 3) * 100}" cy="350" r="5" fill="white" stroke="black" stroke-width="2"/>
+          <line x1="{(point + 3) * 100}" y1="345" x2="{(point + 3) * 100}" y2="{350 - gaussian(point, mu, sigma) * 400}" stroke="green" stroke-dasharray="4" stroke-width="2" />
         {/each}
 
-        <path d="{line().x(d => 50 + (d + 3) * 100).y(d => 350 - gaussian(d, mu, sigma) * 400)(range(-3, 3, 0.01))}" fill="none" stroke="green" stroke-width="2" />
+        <path d="{line().x(d => (d + 3) * 100).y(d => 350 - gaussian(d, mu, sigma) * 400)(range(-3, 3, 0.01))}" fill="none" stroke="green" stroke-width="3" />
       </svg>
 
-      <div>
-        <label>μ (controls the Gaussian's location)
-        <input type="range" min="-3" max="3" step="0.01" bind:value="{mu}" />
+      <div class="input-container">
+        <label>{@html katexify("\\mu", false)} (controls the Gaussian's center)
+        <input type="range" min="-3" max="3" step="0.0001" bind:value="{mu}" />
         </label>
-      </div>
-      <div>
-        <label>σ (controls the Gaussian's width)
-        <input type="range" min="0.5" max="2" step="0.01" bind:value="{sigma}" />
+        <label>{@html katexify("\\sigma", false)} (controls the Gaussian's width)
+        <input type="range" min="0.5" max="2" step="0.0001" bind:value="{sigma}" />
         </label>
       </div>
 
-      <div style="display: flex; align-items: center; margin-top: 10px;">
+      <div style="display: flex; align-items: center; margin-top: 10px;" class="mle-bar">
         <span>Current Likelihood</span>
-        <div style="background: grey; width: 100%; height: 20px; position: relative; margin: 0 10px;">
+        <div style="border-width: 2px; border-style: solid; background: white; width: 100%; height: 20px; position: relative; margin-right: 10px;">
           <div style="background: green; width: {Math.min(currentLikelihood / maxLikelihood, 1) * 100}%; height: 100%;"></div>
         </div>
         <span>Max Likelihood</span>
@@ -101,5 +99,14 @@
   input[type="range"] {
     width: 100%;
     margin: 10px 0;
+    accent-color: green;
+  }
+
+  input[type="range"]:focus {
+    accent-color: green;
+  }
+
+  .mle-bar {
+    text-align: center;
   }
 </style>
