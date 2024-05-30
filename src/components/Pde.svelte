@@ -11,10 +11,12 @@
   let maxLikelihood = 0;
   let currentLikelihood = 0;
 
+  let windowWidth;
+
   function generateData(n = 10) {
     const randomNormal = (mu, sigma) => {
       let u = 0, v = 0;
-      while (u === 0) u = Math.random(); // Converting [0,1) to (0,1)
+      while (u === 0) u = Math.random();
       while (v === 0) v = Math.random();
       return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v) * sigma + mu;
     };
@@ -31,8 +33,17 @@
 
   onMount(() => {
     data = generateData();
+    console.log(data.reduce((a, b) => a + b, 0));
     maxLikelihood = calculateLikelihood(data, 0, 1);
     currentLikelihood = calculateLikelihood(data, mu, sigma);
+
+    windowWidth = window.innerWidth;
+
+    const updateWidth = () => {
+      windowWidth = window.innerWidth;
+    };
+
+    window.addEventListener('resize', updateWidth);
   });
 
   $: currentLikelihood = calculateLikelihood(data, mu, sigma);
@@ -48,15 +59,9 @@
 
     <div class="subsection">
       <h4 class="subsection-header">Maximum Likelihood Estimation (MLE)</h4>
-
-      <p>Ideas: allow users to modify parameters of a normal distribution and calculate the
-      likelihood of observing a set of data based on that</p>
-
-      <svg width="800" height="400" viewBox="0 0 800 400">
+      <svg height="400" >
         <!-- X Axis -->
-        <line x1="50" y1="350" x2="750" y2="350" stroke="black" />
-        <!-- Y Axis -->
-        <line x1="50" y1="50" x2="50" y2="350" stroke="black" />
+        <line x1="0" y1="350" x2="{windowWidth}" y2="350" stroke="#000000" stroke-opacity="1" />
 
         {#each data as point}
           <circle cx="{50 + (point + 3) * 100}" cy="350" r="5" fill="white" stroke="black" />
@@ -67,12 +72,14 @@
       </svg>
 
       <div>
-        <label>μ (controls the Gaussian's location)</label>
+        <label>μ (controls the Gaussian's location)
         <input type="range" min="-3" max="3" step="0.01" bind:value="{mu}" />
+        </label>
       </div>
       <div>
-        <label>σ (controls the Gaussian's width)</label>
-        <input type="range" min="0.48" max="3" step="0.01" bind:value="{sigma}" />
+        <label>σ (controls the Gaussian's width)
+        <input type="range" min="0.5" max="2" step="0.01" bind:value="{sigma}" />
+        </label>
       </div>
 
       <div style="display: flex; align-items: center; margin-top: 10px;">
@@ -87,21 +94,10 @@
 </main>
 
 <style>
-  .section-header {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  .subsection-header {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  .section {
-    margin: 20px;
-  }
   svg {
-    border: 1px solid black;
-    margin-bottom: 20px;
+    width: 100%;
   }
+
   input[type="range"] {
     width: 100%;
     margin: 10px 0;

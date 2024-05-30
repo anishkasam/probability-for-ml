@@ -66,7 +66,7 @@
 
       <p>Let {@html katexify("X", false)} be a random variable. The variance of {@html katexify("X", false)} is:</p>
 
-      {@html katexify("\\text{Var}\\text{(X)}=\\mathbb{E}[(X-\\mu)^2]=\\mathbb{E}[(X-\\mathbb{E}\\text{[X]})^2]=\\mathbb{E}[X^2]-(\\mathbb{E}\\text{[X]})^2", true)}
+      {@html katexify("\\text{Var}\\text{(X)}=\\mathbb{E}[(X-\\mathbb{E}\\text{[X]})^2]=\\mathbb{E}[X^2]-(\\mathbb{E}\\text{[X]})^2", true)}
     
       <p>The standard deviation of {@html katexify("X", false)} is: {@html katexify("\\sqrt{\\text{Var}(X)}", false)}.</p>
     </div>
