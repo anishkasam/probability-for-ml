@@ -68,7 +68,7 @@
           <line x1="{(point + 3) * 100}" y1="345" x2="{(point + 3) * 100}" y2="{350 - gaussian(point, mu, sigma) * 400}" stroke="green" stroke-dasharray="4" stroke-width="2" />
         {/each}
 
-        <path d="{line().x(d => (d + 3) * 100).y(d => 350 - gaussian(d, mu, sigma) * 400)(range(-3, 3, 0.01))}" fill="none" stroke="green" stroke-width="3" />
+        <path d="{line().x(d => (d + 3) * 100).y(d => 350 - gaussian(d, mu, sigma) * 400)(range(-3, 10, 0.01))}" fill="none" stroke="green" stroke-width="3" />
       </svg>
 
       <div class="input-container">
