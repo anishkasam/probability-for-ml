@@ -8,14 +8,11 @@
 </svelte:head>
 
 <main>
-    <h1 class="header">Density Estimation</h1>
+  <h1 class="header">Appendix</h1>
 
-    <p>Density estimation is a powerful technique that lies at the intersection
-    of statistics and machine learning. It enables flexible and robust modeling
-    of complex data distributions and can be an incredibly accurate predictor.</p>
-
-    <p>By: <a href="https://www.linkedin.com/in/anishkasam/" target="blank">Anish Kasam</a> & 
-    <a href="https://www.linkedin.com/in/rushil-c/" target="blank">Rushil Chandrupatla</a></p>
+  <p>It's impossible to truly understand density estimation without a strong
+  foundation in probability and statistics. The explanations below should 
+  serve as a refresher on those fundamentals.</p>
 </main>
 
 <style>

@@ -46,7 +46,7 @@
       <p><b>Note:</b> two events are disjoint if their intersection is the empty set.</p>
 
       <p><b>Inclusion-Exclusion Principle:</b>
-      For any two events {@html katexify("A", false)} and {@html katexify("B", false)} in a 
+      for any two events {@html katexify("A", false)} and {@html katexify("B", false)} in a 
       probability space, 
       {@html katexify("\\mathbb{P}(A\\cup B)=\\mathbb{P}(A)+\\mathbb{P}(B)-\\mathbb{P}(A\\cap B)", false)}.</p>
     </div>

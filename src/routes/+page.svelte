@@ -7,8 +7,12 @@
   import Crvs from '../components/Crvs.svelte';
   import ExpVar from '../components/ExpVar.svelte';
   import Theorems from '../components/Theorems.svelte';
+  import Intro from '../components/Intro.svelte';
+  import Hist from '../components/Hist.svelte';
+  import Kde from '../components/Kde.svelte';
   import Pde from '../components/Pde.svelte';
   import Sampling from '../components/Sampling.svelte';
+  import Appendix from '../components/Appendix.svelte';
 </script>
 
 <svelte:head>
@@ -19,6 +23,12 @@
 <main>
   <div class="container">
     <App />
+    <Intro />
+    <Hist />
+    <Kde />
+    <Pde />
+    <Sampling />
+    <Appendix />
     <ProbSpaces />
     <Prob />
     <Distrs />
@@ -26,8 +36,6 @@
     <Crvs />
     <ExpVar />
     <Theorems />
-    <Pde />
-    <Sampling />
   </div>
 </main>
 

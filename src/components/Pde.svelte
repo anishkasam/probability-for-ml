@@ -54,10 +54,6 @@
     <h2 class="section-header">Parametric Density Estimation</h2>
 
     <div class="subsection">
-      <h4 class="subsection-header">Method of Moments (MOM)</h4>
-    </div>
-
-    <div class="subsection">
       <h4 class="subsection-header">Maximum Likelihood Estimation (MLE)</h4>
       <svg height="400" >
         <!-- X Axis -->
