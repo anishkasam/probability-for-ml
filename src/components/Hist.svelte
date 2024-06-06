@@ -25,7 +25,7 @@
   }
 
   const generateInitialData = () => {
-    const randomNormal = d3.randomNormal(0, 1);
+    const randomNormal = d3.randomNormal(0.01, 0.8);
     allData = Array.from({ length: 10000 }, randomNormal);
     updateData();
   };
@@ -59,47 +59,60 @@
 
     window.addEventListener('resize', updateWidth);
   });
-
 </script>
 
 <main>
   <div id="npde" class="section">
-    <h2 class="section-header">Nonparametric Density Estimation</h2>
+    <h2 class="section-header">Histogram Estimators</h2>
     
     <div class="subsection">
-      <h4 class="subsection-header">Histogram Estimators</h4>
+      <h4 class="subsection-header">Intuition</h4>
 
-      <p>Histogram estimators are the simplest density estimation technique.
-      Data is split up into non-overlapping bins and the number of data points
-      in each bin is counted. These counts are then normalized (scaled down)
+      <p>Histogram estimators are a nonparametric density estimation technique.
+      Data is split up into non-overlapping bins and the proportion of data points
+      in each bin is calculated. These proportions are then normalized (scaled down)
       so that the resulting histogram is a valid density function.</p>
 
-      <p>When estimating density at a specific value, the height of the bin
+      <p>When estimating the density at a specific value, the height of the bin
       containing that value is used.</p>
+    </div>
 
-      <svg width=width height="501">
-        {#each bins as bin}
-          <g transform={`translate(${d3.scaleLinear().domain([-3, 3]).range([0, width - width / (bins.length + 1)])(bin.x0)},${d3.scaleLinear().domain([0, d3.max(bins, d => d.length / (numDataPoints * bin.length))]).range([500, 0])(bin.length / (numDataPoints * bin.length))})`} class="bar">
-            <rect width={width / (bins.length) + 1} height={width - d3.scaleLinear().domain([0, d3.max(bins, d => d.length / (numDataPoints * bin.length))]).range([500, 0])(bin.length / (numDataPoints * bin.length))} />
-          </g>
+    <div class="subsection">
+      <h4 class="subsection-header">Histogram Simulation</h4>
 
-          <line x1="0" y1="500" x2="800" y2="500" stroke="#000000" stroke-opacity="1" stroke-width="1"/>
-        {/each}
+      <p>The following visualization depicts how histogram estimators can be incredibly
+      close to the true distribution as the number of data points and bins increases.</p>
 
-      </svg>
+      <div class="graph-container">
+        <svg width=width-10 height="501">
+          {#each bins as bin}
+            <g transform={`translate(${d3.scaleLinear().domain([-3, 3]).range([0, width - width / (bins.length + 1)])(bin.x0)},${d3.scaleLinear().domain([0, d3.max(bins, d => d.length / (numDataPoints * bin.length))]).range([500, 0])(bin.length / (numDataPoints * bin.length))})`} class="bar">
+              <rect width={width / (bins.length) + 1} height={width - d3.scaleLinear().domain([0, d3.max(bins, d => d.length / (numDataPoints * bin.length))]).range([500, 0])(bin.length / (numDataPoints * bin.length))} />
+            </g>
+            <line x1="0" y1="500" x2="800" y2="500" stroke="#000000" stroke-opacity="1" stroke-width="1"/>
+          {/each}
+          <path d="{line().x(d => (d + 4) * 100).y(d => 500 - gaussian(d, 0, 1) * 1150)(range(-10, 10, 0.01))}" fill="none" stroke="black" stroke-width="3" />
+        </svg>
+        <div class="input-container">
+          <label>
+            <div>Number of Data Points & Bins:</div>
+            <input type="range" bind:value={numDataPoints} min="1000" max="10000" step="1000" on:input={updateData} />
+          </label>
+        </div>
+      </div>
+    </div>
 
-      <label>
-        Number of Data Points:
-        <input type="range" bind:value={numDataPoints} min="1000" max="10000" step="1000" on:input={updateData} />
-      </label>
+    <div class="subsection">
+      <h4 class="subsection-header">Pros & Cons of Histogram Estimators</h4>
 
       <p>The main advantages of using a histogram estimator is that they are
       very easy to implement and don't make any assumptions
       about the underlying distribution of the data.</p>
 
-      <p>However, histogram estimators also have a few disadvantages. In order
-      to construct a good estimate, you need a lot of data points; ideally every
-      bin will have atleast one data point. In low dimensions, this is feasible,
+      <p>However, histogram estimators also have a few key disadvantages. Firstly, they
+      produce a discontinuous density estimate which may be inaccurate. Additionally, as seen 
+      in the simulation, a good estimate requires a lot of data. Ideally, in practice, every
+      bin will have atleast one data point. In low dimensions, this is feasible;
       however, once you start working with high-dimensional data, the number of bins
       increases exponentially.</p>
     </div>
@@ -112,7 +125,17 @@
   .bar {
     fill: #2980b9;
   }
-  svg {
-    margin-bottom: 50px;
+
+  .input-container {
+    margin-top: 25px;
+  }
+
+  input[type="range"] {
+    width: 300px;
+    accent-color: #2980b9;
+  }
+
+  input[type="range"]:focus {
+    accent-color: #2980b9;
   }
 </style>

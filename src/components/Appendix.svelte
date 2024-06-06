@@ -8,11 +8,13 @@
 </svelte:head>
 
 <main>
-  <h1 class="header">Appendix</h1>
+  <div class="section">
+    <h1 class="header">Appendix</h1>
 
-  <p>It's impossible to truly understand density estimation without a strong
-  foundation in probability and statistics. The explanations below should 
-  serve as a refresher on those fundamentals.</p>
+    <p>It's impossible to truly understand density estimation without a strong
+    foundation in probability and statistics. The explanations below should 
+    serve as a refresher on those fundamentals.</p>
+  </div>
 </main>
 
 <style>

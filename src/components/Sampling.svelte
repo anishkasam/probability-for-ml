@@ -55,35 +55,61 @@
 
 <main>
   <div id="sampling" class="section">
-    <h2 class="section-header">Sampling</h2>
+    <h2 class="section-header">Density Estimation in Practice</h2>
 
     <div class="subsection">
-      <h4 class="subsection-header">Simple</h4>
-      <p>In simple random sampling, each member of the population has an equal chance
-      of being selected. Random number generators are often used to select members of
-      the population.</p>
+      <h4 class="subsection-header">Classification</h4>
+      
+      <p>In practice, density estimation is a great technique for classification. </p>
     </div>
 
     <div class="subsection">
-      <h4 class="subsection-header">Stratified</h4>
-      <p>In stratified random sampling, the population is divided into non-overlapping 
+      <h4 class="subsection-header">Histogram, KDE, or MLE?</h4>
+      
+      <p>All three density estimation techniques have their own advantages and disadvantages.
+      Well which one should be used? That depends on the data and the task at hand.</p>
+
+      <p>In specific scenarios, each one can be the best option. For example, if you have
+      a vast amount of data, histogram estimators could be the best. If you have data that
+      is almost guaranteed to be from a known distribution, MLE might be the best. On the other
+      hand if you have data that comes from an unknown distribution, KDE could be appropriate.</p>
+
+      <p>In practice, it's important to tailor your approach to the characteristics of your data
+      and the objectives of your analysis.</p>
+    </div>
+
+    <div class="subsection">
+      <h4 class="subsection-header">Data Quality</h4>
+
+      <p>Regardless of whether you choose a parametric or nonparametric method of density
+      estimation, the data being used to fit the density is incredibly important. Specifically,
+      it's important that the data is representative of the population. Otherwise, the 
+      estimated density won't be representative of the population either.</p>
+
+      <p>Data is typically collected through sampling, and there are three main methodologies:</p>
+
+      <p><b>Simple Random Sampling:</b> each member of the population has an equal chance
+      of being selected, oftentimes a random number generator is used.</p>
+
+      <p><b>Stratified Random Sampling:</b> the population is divided into non-overlapping 
       groups called strata. Within each strata, members are sampled using simple random
       sampling.</p>
-      <p>Stratified random sampling ensures that members from each strata are represented
-      in the overall sample. </p>
-    </div>
 
-    <div class="subsection">
-      <h4 class="subsection-header">Clustered</h4>
-      <p>In clustered sampling, the population is divided into non-overlapping groups
-      called clusters. Clusters are then sampled at random, and all members of selected
-      clusters are part of the final sample.</p>
-      <p>Clustered sampling can be easier to implement than other forms of sampling when 
-      the population is large and spread out.</p>
+      <p><b>Clustered Random Sampling:</b> the population is divided into non-overlapping groups 
+      called clusters. Clusters are then sampled at random, and all members of selected clusters 
+      are part of the final sample.</p>
+      
+      <p>Stratified sampling often ensures a more representative sample since subgroups are 
+      guaranteed to be sampled from. Clustered sampling on the other hand sacrifies 
+      representation for cost effectiveness, since sampling entire clusters at once can be
+      less expensive.</p>
     </div>
 
     <div>
-      <h4 class="subsection-header">Simple vs. Stratified vs. Clustered</h4>
+      <h4 class="subsection-header">Sampling Visualized</h4>
+
+      <p>The following visualization depicts how the population is partitioned when different
+      sampling techniques are employed.</p>
 
       <div class="input-container">
         <label><input type="radio" bind:group={groupBy} value="1"/>Simple</label>
@@ -111,6 +137,32 @@
           </Svg>
         </LayerCake>
       </div>
+    </div>
+  </div>
+
+  <div id="conclusion" class="section">
+    <h2 class="section-header">Conclusion</h2>
+
+    <div class="subsection">
+      <p>All in all, density estimation is an incredibly powerful technique that can be adapted 
+      for a wide variety of use cases. It's the foundation of many statistical and machine 
+      learning methods. By selecting and applying the appropriate technique, be it histogram 
+      estimators, KDEs, or MLEs you can uncover valuable insights, improve predictive models, 
+      and make informed decisions based on your data.</p>
+    </div>
+  </div>
+
+  <div id="sources" class="section">
+    <h2 class="section-header">Sources</h2>
+
+    <div class="subsection">
+      <p>The explanations and visualizations for histogram estimators and maximum likelihood 
+      estimation were adapted from Professor Justin Eldridge's <a href="https://dsc140a.com/">
+      DSC 140A - Probabilistic Modeling & Machine Learning</a>.</p>
+
+      <p>The explanations for kernel density estimators were adapted from Jaroslaw Drapala's 
+      article, <a href="https://towardsdatascience.com/kernel-density-estimation-explained-step-by-step-7cc5b5bc4517">
+      Kernel Density Estimator Explained</a>.</p>
     </div>
   </div>
 </main>

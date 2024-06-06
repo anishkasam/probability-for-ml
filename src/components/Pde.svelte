@@ -51,11 +51,28 @@
 
 <main>
   <div id="para-density-est" class="section">
-    <h2 class="section-header">Parametric Density Estimation</h2>
+    <h2 class="section-header">Maximum Likelihood Estimators (MLE)</h2>
 
     <div class="subsection">
-      <h4 class="subsection-header">Maximum Likelihood Estimation (MLE)</h4>
-      <svg height="400" >
+      <h4 class="subsection-header">Intuition</h4>
+      
+      <p>Unlike nonparametric density estimators, maximum likelihood estimators assume the 
+      data follows a specific probability distribution. These distributions have parameters
+      which define the characteristics of the distribution. For example, the parameters in a
+      normal distribution are the mean (center) and standard deviation (spread).</p>
+
+      <p>The optimal parameters are found by maximizing the likelihood function, which
+      measures how probable the observed data is given values of parameters.</p>
+    </div>
+
+    <div class="subsection">
+      <h4 class="subsection-header">MLE Simulation</h4>
+
+      <p>Try experimenting with different values of {@html katexify("\\mu", false)} (mean) and 
+      {@html katexify("\\sigma", false)} (standard deviation) to find the parameter values 
+      that maximize the likelihood of observing the data points below.</p>
+
+      <svg height="375" >
         <!-- X Axis -->
         <line x1="0" y1="350" x2="{windowWidth}" y2="350" stroke="#000000" stroke-opacity="1" stroke-width="2"/>
 
@@ -68,11 +85,16 @@
       </svg>
 
       <div class="input-container">
-        <label>{@html katexify("\\mu", false)} (controls the Gaussian's center)
-        <input type="range" min="-3" max="3" step="0.0001" bind:value="{mu}" />
+        <label>
+          <div>{@html katexify("\\mu", false)} (controls the Gaussian's center)</div>
+          <input type="range" min="-3" max="3" step="0.0001" bind:value="{mu}" />
         </label>
-        <label>{@html katexify("\\sigma", false)} (controls the Gaussian's width)
-        <input type="range" min="0.5" max="2" step="0.0001" bind:value="{sigma}" />
+      </div>
+
+      <div class="input-container">
+        <label>
+          <div>{@html katexify("\\sigma", false)} (controls the Gaussian's width)</div>
+          <input type="range" min="0.5" max="2" step="0.0001" bind:value="{sigma}" />
         </label>
       </div>
 
@@ -84,6 +106,21 @@
         <span>Max Likelihood</span>
       </div>
     </div>
+
+    <div class="subsection">
+      <h4 class="subsection-header">Pros & Cons of MLE Estimators</h4>
+      
+      <p>One advantage of using MLE compared to nonparametric methods is the limited amount
+      of data that it requires; since the distribution is already assumed, it just has to be fit.
+      Another advantage comes from the fact that the assumed 
+      distributions are already established. For example, if a normal distribution is assumed,
+      then all of the useful properties of a normal distribution can be applied.</p>
+
+      <p>The biggest disadvantage of using a maximum likelihood estimator has to do
+      with the fact that it makes an assumption about the underlying distribution. If the
+      data doesn't actually come from the assumed distribution, the estimated density can be
+      wildly inaccurate, leading to misguided predictions.</p>
+    </div>
   </div>
 </main>
 
@@ -93,8 +130,7 @@
   }
 
   input[type="range"] {
-    width: 100%;
-    margin: 10px 0;
+    width: 300px;
     accent-color: green;
   }
 

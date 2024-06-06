@@ -23,19 +23,22 @@
       density is fit to the data itself.</p>
 
       <p><b>Parametric Density Estimation:</b> a technique where the underlying
-      distribution that the data comes from is assumed. The parameter(s) that
-      maximize the likelihood of observing the data are used to estimate the density. </p>
+      distribution (ex: normal, exponential, etc.) that the data comes from is assumed. 
+      The parameter(s) that maximize the likelihood of observing the given data are used to 
+      estimate the density. </p>
     </div>
 
     <div class="subsection">
-      <h4 class="subsection-header">Importance</h4>
+      <h4 class="subsection-header">Importance & Applications</h4>
 
       <p>Understanding the underlying distribution of data results in highly 
-      useful insights. It can enable anomaly detection, noise reduction, and
-      data smoothing.</p>
+      useful insights. It's employed by many different machine learning methods
+      including Naive Bayes classifiers and Markov models.</p>
 
-      <p>Density estimation is widely used in clustering and classification tasks.
-      Fields that employ this technique include finance, agriculture, sports, etc.</p>
+      <p>These models have applications to countless different industries. They're
+      used in finance for risk assessment and fraud detection; in healthcare for disease
+      diagnosis and treatment personalization; and in agriculture for yield maximization 
+      and pest control.</p>
     </div>
   </div>
 </main>
