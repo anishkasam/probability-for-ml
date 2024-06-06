@@ -78,34 +78,57 @@
 </script>
 
 <main>
-	<div class="subsection">
-		<h4 class="subsection-header">Gaussian Kernel Density Estimators (KDE)</h4>
+  <div class="section" id="kde">
+    <h2 class="section-header">Gaussian Kernel Density Estimators (KDE)</h2>
 
-		<p>Gaussian kernel density estimators are another intuitive density estimation technique. The main idea is to place a kernel function, in this case a normalized Gaussian, at every data point. The sum of all of these Gaussians will result in a valid density function that is more appealing than the one derived using a histogram estimator.</p>
+    <div class="subsection">
+      <h4 class="subsection-header">Intuition</h4>
 
-		<p>The kernel function is a Gaussian with a mean of {@html katexify("0", false)} and a variance of {@html katexify("1", false)}; its pdf is given by:</p>
+      <p>Gaussian kernel density estimators are another intuitive density estimation technique. The main idea is to place a 
+      kernel function, in this case a normalized Gaussian, at every data point. The sum of all of these Gaussians will result 
+      in a valid density function that is more appealing than the one derived using a histogram estimator.</p>
 
-		{@html katexify("K(x)=\\frac{1}{\\sqrt{2\\pi}}e^\\frac{-x^2}{2}", true)}
+      <p>The kernel function is a Gaussian with a mean of {@html katexify("0", false)} and a variance of {@html katexify("1", false)}; 
+      its pdf is given by:</p>
 
-		<p>The overall density function is given by:</p>
+      {@html katexify("K(x)=\\frac{1}{\\sqrt{2\\pi}}e^\\frac{-x^2}{2}", true)}
 
-		{@html katexify("f(x)=\\frac{1}{nh}\\sum^n_{i=1}K(\\frac{x-x_i}{h})", true)}
+      <p>The overall density function is given by:</p>
 
-		<p>In this equation, {@html katexify("\\frac{1}{n}", false)} ensures that the sum of all {@html katexify("n", false)} Gaussians is normalized, maintaining an area of {@html katexify("1", false)}. Additionally, {@html katexify("h", false)} controls the width of each Gaussian.</p>
-	</div>
+      {@html katexify("f(x)=\\frac{1}{nh}\\sum^n_{i=1}K(\\frac{x-x_i}{h})", true)}
 
-	<div id="chart"></div>
+      <p>In this equation, {@html katexify("\\frac{1}{n}", false)} ensures that the sum of all {@html katexify("n", false)} Gaussians is normalized, maintaining an area of {@html katexify("1", false)}. Additionally, {@html katexify("h", false)} controls the width of each Gaussian.</p>
+    </div>
 
-	<div>
-		<label for="bandwidth">Bandwidth (h):</label>
-		<input type="range" id="bandwidth" min="0.01" max="1" step="0.01" bind:value={h} on:input={updateChart}>
-		<span>{h}</span>
-	</div>
-	<div>
-		<label for="num-points">Number of Data Points (n):</label>
-		<input type="range" id="num-points" min="1" max="100" step="1" bind:value={n} on:input={() => { data = generateData(n); updateChart(); }}>
-		<span>{n}</span>
-	</div>
+    <div class="subsection">
+      <h4 class="subsection-header">KDE Example</h4>
+
+      <div id="chart"></div>
+
+      <div>
+        <label for="bandwidth">Bandwidth (h):</label>
+        <input type="range" id="bandwidth" min="0.01" max="1" step="0.01" bind:value={h} on:input={updateChart}>
+        <span>{h}</span>
+      </div>
+      <div>
+        <label for="num-points">Number of Data Points (n):</label>
+        <input type="range" id="num-points" min="1" max="100" step="1" bind:value={n} on:input={() => { data = generateData(n); updateChart(); }}>
+        <span>{n}</span>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h4 class="subsection-header">Pros & Cons of KDE Estimators</h4>
+
+      <p>Just like histogram estimators, KDE estimators are easy to understand and don't make assumptions about the data. Additionally,
+      KDE estimators address some of the key issues with histogram estimators. Unlike histogram estimators, they produce a smooth
+      estimate of the density function.</p>
+
+      <p>However, KDE estimators have their own set of disadvantages. Firstly, they're computationally expensive; computing a Gaussian
+      for each data point can be very costly especially if the data set is massive. Furthermore, they still need a substantial amount of data,
+      albeit less than histogram estimators to provide accurate estimates.</p>
+    </div>
+  </div>
 </main>
 
 <style>

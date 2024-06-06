@@ -60,7 +60,10 @@
     <div class="subsection">
       <h4 class="subsection-header">Classification</h4>
       
-      <p>In practice, density estimation is a great technique for classification. </p>
+      <p>In practice, density estimation is a powerful technique for classification. By fitting separate density estimates 
+      for each class based on the data you have, you can use these estimates to predict the class of new data points. 
+      When predicting, you compute the probability that a new point belongs to each class based on the fitted densities. 
+      You then predict the class that is most likely to produce the given data point.</p>
     </div>
 
     <div class="subsection">

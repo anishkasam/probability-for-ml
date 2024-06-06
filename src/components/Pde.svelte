@@ -13,16 +13,6 @@
 
   let windowWidth;
 
-  function generateData(n = 10) {
-    const randomNormal = (mu, sigma) => {
-      let u = 0, v = 0;
-      while (u === 0) u = Math.random();
-      while (v === 0) v = Math.random();
-      return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v) * sigma + mu;
-    };
-    return range(n).map(() => randomNormal(0, 1));
-  }
-
   function gaussian(x, mu, sigma) {
     return (1 / (sigma * Math.sqrt(2 * Math.PI))) * Math.exp(-((x - mu) ** 2) / (2 * sigma ** 2));
   }
@@ -31,10 +21,19 @@
     return data.reduce((acc, point) => acc * gaussian(point, mu, sigma), 1);
   }
 
+  function calculateAverage(data) {
+    return data.reduce((sum, value) => sum + value, 0) / data.length;
+  }
+
+  function calculateStdDev(data, mean) {
+    return Math.sqrt(data.reduce((sum, value) => sum + Math.pow(value - mean, 2), 0) / data.length);
+  }
+
   onMount(() => {
-    data = generateData();
+    data = [-1.5, -1, -0.6, -0.3, -0.1, 0.1, 0.3, 0.6, 1, 1.5];
+    console.log(data);
     console.log(data.reduce((a, b) => a + b, 0));
-    maxLikelihood = calculateLikelihood(data, 0, 1);
+    maxLikelihood = calculateLikelihood(data, calculateAverage(data), calculateStdDev(data, calculateAverage(data)));
     currentLikelihood = calculateLikelihood(data, mu, sigma);
 
     windowWidth = window.innerWidth;

@@ -74,7 +74,9 @@
       so that the resulting histogram is a valid density function.</p>
 
       <p>When estimating the density at a specific value, the height of the bin
-      containing that value is used.</p>
+      containing that value is used. The formula for the height is given by:</p>
+
+      {@html katexify("f(x)=\\frac{\\text{points in bin containing x}}{\\text{total points}\\times\\text{bin size}}", true)}
     </div>
 
     <div class="subsection">
