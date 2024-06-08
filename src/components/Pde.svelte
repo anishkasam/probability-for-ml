@@ -61,7 +61,10 @@
       normal distribution are the mean (center) and standard deviation (spread).</p>
 
       <p>The optimal parameters are found by maximizing the likelihood function, which
-      measures how probable the observed data is given values of parameters.</p>
+      measures how probable the observed data is given values of parameters. It is defined as the
+      product of probability density functions for the observed data:</p>
+
+      {@html katexify("L(\\theta ;x)=\\prod_{i=1}^n p_x(x_i|\\theta)", true)}
     </div>
 
     <div class="subsection">
