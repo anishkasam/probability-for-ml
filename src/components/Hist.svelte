@@ -94,6 +94,14 @@
             <line x1="0" y1="500" x2="800" y2="500" stroke="#000000" stroke-opacity="1" stroke-width="1"/>
           {/each}
           <path d="{line().x(d => (d + 4) * 100).y(d => 500 - gaussian(d, 0, 1) * 1150)(range(-10, 10, 0.01))}" fill="none" stroke="black" stroke-width="3" />
+          <text x="600" y="100" fill="black" font-size="18" font-family="Inter" text-anchor="middle">True Density</text>
+
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+              <polygon points="0 0, 3.5 3.5, 0 7" />
+            </marker>
+          </defs>
+          <path d="M600,110 C580,165 560,190 510,200" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
         </svg>
         <div class="input-container">
           <label>
@@ -130,6 +138,7 @@
 
   .input-container {
     margin-top: 25px;
+    margin-bottom: -15px;
   }
 
   input[type="range"] {

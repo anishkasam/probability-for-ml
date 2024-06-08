@@ -62,7 +62,7 @@
 
       <p>The optimal parameters are found by maximizing the likelihood function, which
       measures how probable the observed data is given values of parameters. It is defined as the
-      product of probability density functions for the observed data:</p>
+      product of the probability density functions for the observed data:</p>
 
       {@html katexify("L(\\theta ;x)=\\prod_{i=1}^n p_x(x_i|\\theta)", true)}
     </div>
@@ -85,28 +85,25 @@
         {/each}
       
         <path d="{line().x(d => (d + 3) * 100).y(d => 350 - gaussian(d, mu, sigma) * 400)(range(-3, 10, 0.01))}" fill="none" stroke="green" stroke-width="3" />
-        
-        <!-- Text in the center -->
-        <text x="{windowWidth / 2}" y="200" font-size="20" text-anchor="middle">Point</text>
 
         <!-- Text beneath sliders -->
-        <text x="{windowWidth / 2 - 175}" y="50" font-size="16" text-anchor="middle">
-          <tspan dx="-10" fill="green" stroke="green" stroke-width="1" >- - -</tspan>
-          <tspan dx="5">: Likelihood at Point</tspan>
+        <line x1="565" y1="45" x2="590" y2="45" stroke="green" stroke-width="3" stroke-dasharray="5,5" />
+        <text x="675" y="50" font-size="18" text-anchor="middle">
+          <tspan dx="5"> Likelihood at Point</tspan>
         </text>
       </svg>
       
       <div class="input-container">
         <label>
           <div>{@html katexify("\\mu", false)} (controls the Gaussian's center)</div>
-          <input type="range" min="-3" max="3" step="0.0001" bind:value="{mu}" />
+          <input type="range" min="-1.4" max="3" step="0.00001" bind:value="{mu}" />
         </label>
       </div>
 
       <div class="input-container">
         <label>
           <div>{@html katexify("\\sigma", false)} (controls the Gaussian's width)</div>
-          <input type="range" min="0.5" max="2" step="0.0001" bind:value="{sigma}" />
+          <input type="range" min="0.5" max="2" step="0.00001" bind:value="{sigma}" />
         </label>
       </div>
 

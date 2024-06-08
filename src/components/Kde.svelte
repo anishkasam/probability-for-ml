@@ -44,10 +44,10 @@
       .y1(d => y(d[1]));
 
     svg.append("path")
-      .attr("fill", "green")
-      .attr("stroke", "darkgreen")
+      .attr("fill", "#e74c3c")
+      .attr("stroke", "#c0392b")
       .attr("stroke-width", 2)
-      .attr("opacity", 0.5)
+      .attr("opacity", 0.8)
       .attr("d", area(kdeData));
 
     svg.append("g")
@@ -58,6 +58,7 @@
       .attr("x", margin.left / 2 + width / 2)
       .attr("y", -height / 2 + 300)
       .attr("font-size", "18px")
+      .attr("font-family", "Inter")
       .text("Measurement");
 
     svg.append("g")
@@ -69,6 +70,7 @@
       .attr("y", margin.left / 2 - 75)
       .attr("x", -height / 2)
       .attr("font-size", "18px")
+      .attr("font-family", "Inter")
       .text("Density")
       .attr("text-anchor", "middle");
 
@@ -121,7 +123,6 @@
     </p>
   </div>
 
-  <div id="kde"></div>
   <div class="subsection">
     <h4 class="subsection-header">Pros & Cons of KDE Estimators</h4>
 
@@ -131,21 +132,25 @@
 
     <p>However, KDE estimators have their own set of disadvantages. Firstly, they're computationally expensive; computing a Gaussian
     for each data point can be very costly especially if the data set is massive. Furthermore, they still need a substantial amount of data,
-    albeit less than histogram estimators to provide accurate estimates.</p>
+    albeit less than histogram estimators, to provide accurate estimates.</p>
   </div>
   
 </main>
 
 <style>
   @import 'styles.css';
+  
   .subsection {
     margin-bottom: 20px;
   }
+
   .subsection-header {
     margin-top: 20px;
   }
+
   #kde {
-    margin-top: 20px;
+    margin-top: -30px;
     font-size: 18px;
+    margin-left: -20px;
   }
 </style>

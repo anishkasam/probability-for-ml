@@ -13,6 +13,7 @@
   import Pde from '../components/Pde.svelte';
   import Sampling from '../components/Sampling.svelte';
   import Appendix from '../components/Appendix.svelte';
+  import InPractice from '../components/InPractice.svelte';
 </script>
 
 <svelte:head>
@@ -27,6 +28,7 @@
     <Hist />
     <Kde />
     <Pde />
+    <InPractice />
     <Sampling />
     <Appendix />
     <ProbSpaces />
