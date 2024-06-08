@@ -74,18 +74,28 @@
       {@html katexify("\\sigma", false)} (standard deviation) to find the parameter values 
       that maximize the likelihood of observing the data points below.</p>
 
-      <svg height="375" >
+      <svg height="375" style="position: relative;">
         <!-- X Axis -->
         <line x1="0" y1="350" x2="{windowWidth}" y2="350" stroke="#000000" stroke-opacity="1" stroke-width="2"/>
-
+      
+        <!-- Placeholder for data points and curve -->
         {#each data as point}
           <circle cx="{(point + 3) * 100}" cy="350" r="5" fill="white" stroke="black" stroke-width="2"/>
           <line x1="{(point + 3) * 100}" y1="345" x2="{(point + 3) * 100}" y2="{350 - gaussian(point, mu, sigma) * 400}" stroke="green" stroke-dasharray="4" stroke-width="2" />
         {/each}
-
+      
         <path d="{line().x(d => (d + 3) * 100).y(d => 350 - gaussian(d, mu, sigma) * 400)(range(-3, 10, 0.01))}" fill="none" stroke="green" stroke-width="3" />
-      </svg>
+        
+        <!-- Text in the center -->
+        <text x="{windowWidth / 2}" y="200" font-size="20" text-anchor="middle">Point</text>
 
+        <!-- Text beneath sliders -->
+        <text x="{windowWidth / 2 - 175}" y="50" font-size="16" text-anchor="middle">
+          <tspan dx="-10" fill="green" stroke="green" stroke-width="1" >- - -</tspan>
+          <tspan dx="5">: Likelihood at Point</tspan>
+        </text>
+      </svg>
+      
       <div class="input-container">
         <label>
           <div>{@html katexify("\\mu", false)} (controls the Gaussian's center)</div>
