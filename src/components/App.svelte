@@ -10,9 +10,7 @@
 <main>
     <h1 class="header">Density Estimation</h1>
 
-    <p>Density estimation is a powerful technique that lies at the intersection
-    of statistics and machine learning. It enables flexible and robust modeling
-    of complex data distributions and can be an incredibly accurate predictor.</p>
+    <p>What if we told you that a single statistical method could revolutionize fields from finance to healthcare? Welcome to the world of density estimation. Let's explore how this unsung hero of data science works and why it's so important.</p>
 
     <p>By: <a href="https://www.linkedin.com/in/anishkasam/" target="blank">Anish Kasam</a> & 
     <a href="https://www.linkedin.com/in/rushil-c/" target="blank">Rushil Chandrupatla</a></p>
